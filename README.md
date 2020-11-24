@@ -5,9 +5,7 @@
 | Column            | Type     | Options     |
 | --------          | ------   | ----------- |
 | nickname          | string   | null: false |
-| name              | string   | null: false |
 | birthday          | date     | null: false |
-| furigana          | string   | null: false |
 | encrypted_password| string   | null: false | 
 | first_name        | string   | null: false            |
 | last_name         | string   | null: false             |
@@ -49,14 +47,13 @@
 
 -belongs_to :item
 -belongs_to :user
--has_many :shipping_address
+-has_one :shipping_address
 
 
 ## shipping address テーブル
 
 |Colum             | Type        |Options                         |
 |___________       |_____________|__________                      |
-|street_address    | string      | null: false                    |
 |postal_code_id    | string      | null: false                    |
 |prefecture _id    | integer     | null: false                    |
 |city              | string      | null: false                    |
@@ -64,7 +61,6 @@
 |building_name     | string      |  
 |phone_number      | string      | null: false                    |
 |purchase_record   | references  | null: false, foreign_key: true |
-|user              | references  | null: false, foreign_key: true |
 
 ### Association
 
