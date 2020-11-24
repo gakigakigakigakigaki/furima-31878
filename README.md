@@ -6,34 +6,34 @@
 | --------      | ------   | ----------- |
 | nickname      | string   | null: false |
 | name          | string   | null: false |
-| password      | string   | null: false |
-| mall address  | string   | null: false |
-| birthday      | string   | null: false |
+| birthday      | date     | null: false |
 | furigana      | string   | null: false |
+| first_name    | string   | null: false |
+| gender_name   | string   | null: false |
 
 ### Association
 
-- has_many :purchases record
-- hss_many :item
+- has_many :purchases_records
+- hss_many :items
 
 ## items テーブル
 
 | Column          | Type       | Options                        |
 | ------          | ------     | -----------                    |
-| product name    | string     | null: false                    |
+| product_name    | string     | null: false                    |
 | price           | integer    | null: false                    |
 | category        | string     | null: false                    |
 | status          | text       | null: false                    |
 | seller          | string     | null: false                    |
 | description     | text       | null: false                    |
-| shipment source | string     | null: false                    |
-| days to ship    | datetime   | null: false                    |
-| delivery fee    | integer    | null: false                    |
+| shipment_source | string     | null: false                    |
+| days_to_ship    | datetime   | null: false                    |
+| delivery_fee    | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
 
--has_one :purchase record
+-has_one :purchase_record
 -belongs_to :user
 
 ## purchase records テーブル
@@ -49,20 +49,22 @@
 
 -has_one :item
 -belongs_to :user
--has_many :shipping address
+-has_many :shipping_address
 
 
 ## shipping address テーブル
 
 |Colum          | Type        |Options                         |
 |___________    |_____________|__________                      |
-|street address | text        | null: false                    |
-|postal code    | string      | null: false                    |
-|todoufuken     | string      | null: false                    |
-|sikuchouson    | string      | null: false                    |
-|banti          | string      | null: false                    |
-|phone number   | integer     | null: false                    |
-|purchase record| references  | null: false, foreign_key: true |
+|street_address | text        | null: false                    |
+|postal_code    | string      | null: false                    |
+|prefecture     | integer     | null: false                    |
+|city           | string      | null: false                    |
+|house_number   | string      | null: false                    |
+|building_name  | string      | null: false  
+|phone_number   | string      | null: false                    |
+|purchase_record| references  | null: false, foreign_key: true |
+|user           | references  | null: false, foreign_key: true |
 
 ### Association
 
