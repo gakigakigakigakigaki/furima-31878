@@ -4,11 +4,12 @@
 
 | Column            | Type     | Options     |
 | --------          | ------   | ----------- |
+| email             | string   | null: false |
 | nickname          | string   | null: false |
 | birthday          | date     | null: false |
 | encrypted_password| string   | null: false | 
-| first_name        | string   | null: false            |
-| last_name         | string   | null: false             |
+| first_name        | string   | null: false |
+| last_name         | string   | null: false |
 | first_name_kana   | string   | null: false |
 | last_name_kana    | string   | null: false |
 
@@ -23,7 +24,7 @@
 | ------             | ------     | -----------                    |
 | product_name       | string     | null: false                    |
 | price              | integer    | null: false                    |
-| category_id        | integer    | null: false                   |
+| category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
 | description        | text       | null: false                    |
 | shipment_source_id | integer    | null: false                    |
@@ -36,7 +37,7 @@
 -has_one :purchase_record
 -belongs_to :user
 
-## purchase records テーブル
+## purchase_records テーブル
 
 | Column  | Type       | Options                        |
 | ------  | ---------- | ------------------------------ |
@@ -54,8 +55,8 @@
 
 |Colum             | Type        |Options                         |
 |___________       |_____________|__________                      |
-|postal_code_id    | string      | null: false                    |
-|prefecture _id    | integer     | null: false                    |
+|postal_code       | string      | null: false                    |
+|prefecture_id    | integer     | null: false                    |
 |city              | string      | null: false                    |
 |house_number      | string      | null: false                    |
 |building_name     | string      |  
@@ -64,4 +65,4 @@
 
 ### Association
 
--belongs_to :purchase record
+-belongs_to :purchase_record
