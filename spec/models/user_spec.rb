@@ -30,15 +30,15 @@ describe User do
       end
       it "passwordが存在してもpassword_confirmationが空では登録できない" do
       end
-      it "first_nameが空では登録できない"
+      it "first_nameが空では登録できない" do
       end
-      it "last_nameが空では登録できない"
+      it "last_nameが空では登録できない" do
       end
-      it "first_name_kanaが空では登録できない"
+      it "first_name_kanaが空では登録できない" do
       end
-      it "last_name_kanaが空では登録できない"
+      it "last_name_kanaが空では登録できない" do
       end
-      it "birthdayが空では登録できない"
+      it "birthdayが空では登録できない" do
       end
     end
   end
