@@ -12,3 +12,4 @@ class ProductInformation < ApplicationRecord
     { id: 9, name: 'その他'}
   ]
 end
+
