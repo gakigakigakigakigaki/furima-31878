@@ -12,11 +12,11 @@ describe Item do
       end
       it "priceが半角数字で登録できる" do
         
-        @item.price = "4000"
+        @item.price = 4000
         expect(@item).to be_valid
       end
       it "priceが¥300以上であれば登録できる" do
-        @item.price = "300"
+        @item.price = 300
         expect(@item).to be_valid
       end
     end
@@ -53,10 +53,20 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it "category_idが０では登録できない" do
+        @item.category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
+      end
       it "status_idが空では登録できない" do
         @item.status_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Status can't be blank")
+      end
+      it "status_idが0では登録できない" do
+        @item.status_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status must be other than 0")
       end
       it "descriptionが空では登録できない" do
         @item.description = ""
@@ -68,15 +78,30 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it "prefecture_idが0では登録できない" do
+        @item.prefecture_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
+      end
       it "days_to_ship_idが空では登録できない" do
         @item.days_to_ship_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Days to ship can't be blank")
       end
+      it "days_to_ship_idが0では登録できない" do
+        @item.days_to_ship_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Days to ship must be other than 0")
+      end
       it "delivery_fee_idが空では登録できない" do
         @item.delivery_fee_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
+      end
+      it "delivery_fee_idが０では登録できない" do
+        @item.delivery_fee_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery fee must be other than 0")
       end
     end
   end

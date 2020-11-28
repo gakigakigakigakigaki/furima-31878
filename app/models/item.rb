@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   has_one_attached :image
-  
+  belongs_to :user
+
   with_options presence: true do
     validates :image
     validates :product_name
@@ -21,10 +22,11 @@ class Item < ApplicationRecord
   belongs_to :days_to_ship
   belongs_to :prefecture
 
-
-  validates :category_id, numericality: { other_than: 0 }
-  validates :status_id, numericality: { other_than: 0 }
-  validates :delivery_fee_id, numericality: { other_than: 0 }
-  validates :days_to_ship_id, numericality: { other_than: 0 }
-  validates :prefecture_id, numericality: { other_than: 0 }  
+  with_options numericality: { other_than: 0 } do
+  validates :category_id
+  validates :status_id
+  validates :delivery_fee_id
+  validates :days_to_ship_id
+  validates :prefecture_id
+  end 
 end
