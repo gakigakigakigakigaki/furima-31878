@@ -1,11 +1,11 @@
-<%= render "shared/header" %>
+<%# <%= render "shared/header" %> %>
 
 <%# 商品の概要 %>
-<div class="item-show">
-  <div class="item-box">
+<%# <div class="item-show"> %>
+  <%# <div class="item-box">
     <h2 class="name">
       <%= @item.product_name %>
-    </h2>
+    <%# </h2> %>
     <div class='item-img-content'>
       <%= image_tag @item.image, class: "item-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
@@ -106,4 +106,4 @@
   <a href="#" class='another-item'><%= "商品のカテゴリー名" %>をもっと見る</a>
 </div>
 
-<%= render "shared/footer" %>
+<%= render "shared/footer" %> %>
