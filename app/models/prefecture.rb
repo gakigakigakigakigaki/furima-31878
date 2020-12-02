@@ -21,5 +21,6 @@ self.data = [
 
  include ActiveHash::Associations
   has_many :items
+  has_many :shipping_adresses
 
 end
