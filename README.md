@@ -67,5 +67,3 @@
 
 -belongs_to :purchase_record
 
-
-<% elsif @purchase_record%>

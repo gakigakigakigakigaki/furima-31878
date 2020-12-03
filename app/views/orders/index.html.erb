@@ -1,5 +1,6 @@
 <%= render "shared/second-header"%>
 
+
 <div class='transaction-contents'>
   <div class='transaction-main'>
     <h1 class='transaction-title-text'>
@@ -31,7 +32,8 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with(model: @item_order, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true ) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %> 
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -73,6 +75,8 @@
     <%# /カード情報の入力 %>
     
     <%# 配送先の入力 %>
+    
+      
     <div class='shipping-address-form'>
       <h1 class='info-input-haedline'>
         配送先入力
@@ -89,7 +93,7 @@
           <label class="form-text">都道府県</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:prefecture, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"shipping_adress-prefecture"}) %>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
@@ -103,14 +107,14 @@
           <label class="form-text">番地</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field 'house_number ', class:"input-default", id:"addresses", placeholder:"例）青山1-1-1"%>
+        <%= f.text_field 'house_number', class:"input-default", id:"addresses", placeholder:"例）青山1-1-1"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">建物名</label>
           <span class="form-any">任意</span>
         </div>
-        <%= f.text_field 'building_name ', class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+        <%= f.text_field 'building_name', class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
