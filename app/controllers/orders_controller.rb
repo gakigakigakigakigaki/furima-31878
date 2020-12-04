@@ -29,9 +29,10 @@ class OrdersController < ApplicationController
 
   def move_to_root_path
     @item = Item.find(params[:item_id])
-    if @item_id != current_user.id
+    if @item.user_id == current_user.id
       redirect_to root_path
     end
+  end
 
 
   def order_params
