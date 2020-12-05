@@ -48,6 +48,11 @@ RSpec.describe ItemOrder, type: :model do
       @item_order.valid?
       expect(@item_order.errors.full_messages).to include("Phone number can't be blank")
     end
+    it 'phone_numberに数字以外の文字が含まれていると保存できない' do
+      @item_order.phone_number = '数字以外の文字'
+      @item_order.valid?
+      expect(@item_order.errors.full_messages).to include("Phone number can't be blank")
+    end
     it "tokenが空では登録できないこと" do
       @item_order.token = nil
       @item_order.valid?
